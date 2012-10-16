@@ -3,3 +3,17 @@
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   text-transform: none;
 }
+
+.query-filter {
+  color: greenyellow;
+}
+div.query-filter {
+  border: 1px solid greenyellow;
+}
+
+.type-filter {
+  color: peru;
+}
+div.type-filter {
+  border: 1px solid peru;
+}

@@ -39,7 +39,7 @@
           </p>
           <br />
           <p>
-          <strong>Slides URL: <a href="http://goo.gl/rph7w">http://goo.gl/rph7w</a></strong>
+          <strong>URL: <a href="http://goo.gl/rph7w">http://goo.gl/rph7w</a></strong>
           </p>
 				</section>
 
@@ -94,6 +94,10 @@
             <p>
               <small><a href="http://ericduran.github.com/chromeHAR/">http://ericduran.github.com/chromeHAR/</a></small>
             </p>
+            <aside class="notes">
+              - Meant to mimic the Network Tab in Dev Tools
+              - Why? - I just wanted something that's familiar to most people
+            </aside>
 					</section>
 				</section>
 
@@ -125,6 +129,10 @@ angular.module('net', ['net.dnd']).controller('NetworkCtrl',
   <i>&lt;span&gt;Start Time&lt;/span&gt;</i>
 
             </code></pre>
+            <aside class="notes">
+              - Data-binding is pretty much all this app does.
+              - The network panel does a lot of filtering, sorting. This is super simple in angula
+            </aside>
           </section>
         </section>
 
@@ -186,18 +194,87 @@ angular.module('net', ['net.dnd']).controller('NetworkCtrl',
           <p>
             Actual template is a bit more ;-)
           </p>
+          <aside class="notes">
+             - Most of the app is the TR.
+             - NG-REPEAT does more of the heavy lifting.
+             - Actual template has filters but we'll see that later on.
+           </aside>
 				</section>
 
 				<section>
 					<h2>Filtering the &lt;tr&gt;s</h2>
+          <pre><code>
+&lt;tr ng-repeat=&quot;entry in entries |
+  <span class="query-filter">filter:query</span> |
+  <span class="type-filter">filter:type</span> |
+  orderBy:predicate:reverse&quot;
+&gt;
+....
+&lt;/tr&gt;
+          </code></pre>
+          <div class="query-filter">
+            <img src="imgs/network-search.png" />
+            &lt;input type="search"  ng-model="query"&gt;
+          </div>
+          <br />
+          <div class="type-filter">
+          <img src="imgs/filter-type.png" /> <br />
+            &lt;li ng-click="type.mimeType='text/html'"&gt;Docs&lt;/li&gt; <br/>
+            &lt;li ng-click="type.mimeType='text/css'"&gt;Styles&lt;/li&gt;
+          </div>
+          <aside class="notes">
+             - ng-filters.
+             - The green yellow is the text filter. So each to just do ng-model.
+             - Type filer is the pero.
+             - What I'm doing here is setting my $scope.type.mimeType = What ever is selected.
+           </aside>
 				</section>
 
         <section>
           <h2>Ordering the &lt;tr&gt;s</h2>
+          <img src="imgs/order-by.png" />
+          <pre><code>
+// Original version: Set my predicate to the nameSort key.
+&lt;th ng-click="predicate = 'nameSort'; reverse=false">Name&lt;/th&gt;
+
+// New version: set sort lets me flip the reverse value.
+&lt;th ng-click="setSort('method');">Method&lt;/th&gt;
+          </code></pre>
+          <pre><code>
+// ng-repeat also has an orderBy applied after all the filters
+&lt;tr ng-repeat="entry in entries | ... |
+  orderBy:predicate:reverse"&gt;
+....
+&lt;/tr&gt;
+          </code></pre>
+          <aside class="notes">
+            - My entries variable have a special namesort.key with the Name we want to sort by.
+            - Use the orderBy in my ng-repeat
+            - Sorting is on the Headers (Name, Method, Status)
+            - The value that is sorted by is not the same value that is display.
+            - Mainly because we display the url and we don't wan to sort based on the URL
+          </aside>
         </section>
 
         <section>
-          <h2>Toggling states</h2>
+          <h2>Toggling active states</h2>
+          <img src="imgs/states-toggle.png" />
+          <pre><code>
+&lt;li ng-class="getClass('css')" ng-click="sI='css'"&gt;Stylesheets&lt;/li&gt;
+
+// JS Code:
+$scope.getClass = function (type) {
+   return ( (type == $scope.sI) ? 'selected' : '');
+}
+          </code></pre>
+          <p>
+            Returns "selected" class when the "sI" value is the same
+          </p>
+          <img src="imgs/tabs-select.png" />
+          <img src="imgs/open-close.png" />
+          <aside class="notes">
+            -Most of the states are just turning on and off css classes based on the sI value.
+          </aside>
         </section>
 
         <section>
@@ -244,6 +321,22 @@ var dndModule = angular.module('net.dnd', []);
 );
             </code></pre>
           </section>
+        </section>
+
+        <section>
+          <h1>Thanks</h1>
+          <br />
+          <ul>
+            <li><a href="http://ericduran.github.com/chromeHAR/">chromeHAR</a></li>
+            <li><a href="https://github.com/ericduran/presentations">Presentation</a></li>
+          </ul>
+          <br />
+          <br />
+          <p>
+            <a href="https://twitter.com/ericjduran" class="twitter">@ericjduran</a> &nbsp;
+            <a href="https://plus.google.com/108760431969212101490" class="google">+Eric J. Duran</a> &nbsp;
+            <a href="https://github.com/ericduran" class="github">{}ericduran</a>
+          </p>
         </section>
 			</div>
 		</div>
