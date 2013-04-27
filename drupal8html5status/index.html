@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>druplal8html5status</title>
+
+    <meta name="description" content="This is a presentation regarding the status of new features in Drupal 8.">
+    <meta name="author" content="Eric J. Duran" />
+
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+  <a href="http://github.com/ericduran/drupal8html5status"><img style="position: absolute; top: 0; right: 0; border: 0; margin: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
+<div id="impress" class="impress-not-supported">
+  <div id="intro" class="step slide" data-x="-2000" data-y="0">
+    <p class="title">Drupal 8 HTML 5 Status</p>
+    <img src="img/drupalhtml5logo.png" alt="Drupal HTML 5 Logo" width="350px"/>
+    <div class="info">
+    <p>Eric J. Duran</p>
+    <a href="https://twitter.com/ericjduran" class="twitter-follow-button" data-show-count="false" data-lang="en" data-width="125px">Follow @ericjduran</a>
+    </div>
+    <a href="http://www.w3.org/html/logo/" class="logo">
+      <img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-device-graphics-multimedia-performance-semantics.png" width="293" height="64" alt="HTML5 Powered with CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, and Semantics" title="HTML5 Powered with CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, and Semantics">
+    </a>
+  </div>
+  <div id="work" class="step slide" data-x="-1000" data-y="0">
+    <p class="title">Lullabot</p>
+    <img src="img/lb.png" />
+  </div>
+  <div id="work" class="step slide" data-x="0" data-y="0">
+    <p class="title">Drupalize.me</p>
+    <img src="img/d.me.png" />
+  </div>
+  <div class="step slide" data-x="1000" data-y="0">
+    <p class="title"> HTML5? OMGWTFBBQ?</p>
+    <span>There a lot better resources for that than me.</span>
+    <p><br /></p>
+    <p>Better resources:</p>
+    <ul>
+      <li><a href="http://www.html5rocks.com/">HTML5 Rocks</a></li>
+      <li><a href="http://diveintohtml5.info/">Dive into HTML5</a></li>
+      <li><a href="http://caniuse.com//">Can I use</a></li>
+      <li><a href="https://www.google.com/#q=html5">Way too many for me to list</a></li>
+  </div>
+
+  <div class="step" data-x="1500" data-y="1500" data-scale="2" data-rotate="60">
+    <p class="title">The DOCTYPE!</p>
+
+    <span class="old">
+      Drupal 7:
+      <code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+        "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;</code></span>
+     Drupal 8:
+    <span class="new"><code>&lt;!DOCTYPE html&gt;</code></span>
+    <a class="issue fixed" href="http://drupal.org/node/1077566">#1077566: Convert html.tpl.php to HTML5</a>
+  </div>
+
+  <div id="semantics" class="step" data-x="2630" data-y="4500" data-scale="4" data-rotate="60">
+    <p class="title">Semantics</p>
+  </div>
+  <div id="semantic-article" class="step" data-x="1600" data-y="3500" data-scale="2" data-rotate="60">
+   <p class="title">Article</p>
+   <span class="old"><code>&lt;div id="node-n" class="article"&gt;... &lt;/div&gt;</code>
+   <span class="new"><code>&lt;article id="node-n"&gt;...&lt;/article&gt;"</code></span>
+   <a class="issue fixed" href="http://drupal.org/node/1077602">#1077602: Convert node.tpl.php to HTML5</a>
+  </div>
+  <div id="semantic-comment" class="step" data-x="2200" data-y="4531" data-scale="2" data-rotate="60">
+    <p class="title">Comments</p>
+    <span class="old"><code>&lt;div class="comment"&gt;... &lt;/div&gt;</code>
+    <span class="new"><code>&lt;article class=comment"&gt;... &lt;/article&gt;</code>
+    <a class="issue fixed" href="http://drupal.org/node/1189816">#1189816: Convert comment.tpl.php to HTML5</a>
+  </div>
+  <div id="sementic-page" class="step" data-x="2750" data-y="5574" data-scale="2" data-rotate="60">
+   <p class="title">Page</p>
+   <span class="old"><code>
+       &lt;div id="page"&gt;<br />
+       &nbsp;&nbsp;&lt;div id="header"&gt;...&lt;/div&gt;<br />
+       &nbsp;&nbsp;&lt;div id="navigation"&gt;...&lt;/div&gt;<br />
+       &nbsp;&nbsp;&lt;div id="footer"&gt;...&lt;/div&gt;<br />
+      &lt;/div&gt;
+   </code></span>
+   <span class="new"><code>
+    &lt;div id="page"&gt;<br />
+    &nbsp;&nbsp;&lt;header role="banner"&gt;...&lt;/header&gt;<br />
+    &nbsp;&nbsp;&lt;nav role="navigation"&gt;...&lt;/nav&gt;<br />
+    &nbsp;&nbsp;&lt;footer role="contentinfo"&gt;...&lt;/footer&gt;<br />
+    &lt;/div&gt;
+   </code></span>
+   <a class="issue fixed" href="http://drupal.org/node/1077578">#1077578: Convert comment.tpl.php to HTML5</a>
+ </div>
+ <div class="step" data-x="2119" data-y="6625" data-rotate="120">
+   <p>What about ie? </p>
+   <span class="shiv">  SHIV!!!!</span>
+   <img src="" alt="Drupal HTML 5 Logo" width="350px" id="shiv-ie" onclick="shiv();"/>
+   <script>
+    function shiv() {
+      var ie = document.getElementById('shiv-ie');
+      ie.src = 'img/ieshiv.gif';
+    }
+   </script>
+      <br />
+   <a class="issue fixed" href="http://drupal.org/node/1077878">#1077878: Added HTML5shiv to core</a>
+   <p>Oh we also ugraded to the latest version of jQuery. So no need for the innerShiv</p>
+   <a class="issue fixed" href="http://drupal.org/node/1328900">#1328900: Update to jQuery 1.7.</a>
+ </div>
+
+ <div id="forms" class="step" data-x="808" data-y="6533" data-scale="2" data-rotate="120">
+   <p class="title">Forms</p>
+ </div>
+ <div id="forms-elements" class="step" data-x="808" data-y="6533" data-scale="1" data-rotate="120">
+  <p class="title">Form Elements</p>
+    email: <input type="email" placeholder="email" /> <a class="issue" href="http://drupal.org/node/1174620">#1174620: Add new HTML5 FAPI element: email</a><br />
+    url: <input type="url" placeholder="url" /> <a class="issue" href="http://drupal.org/node/1174630">#1174630: Add new HTML5 FAPI element: url</a><br />
+    search: <input type="search" placeholder="search" /><a class="issue" href="http://drupal.org/node/1174628">#1174628: Add new HTML5 FAPI element: search</a><br />
+    tel: <input type="tel" placeholder="tel" /><a class="issue fixed" href="http://drupal.org/node/1174634">#1174634: Add new HTML5 FAPI element: telephone</a><br />
+    number: <input type="number" placeholder="1234" /><a class="issue" href="http://drupal.org/node/1174640">#1174640: Add new HTML5 FAPI element: number</a><br />
+    range: <input type="range"/><a class="issue" href="http://drupal.org/node/1174646">#1174646: Add new HTML5 FAPI element: range</a><br />
+    <br />
+    <br />
+    <br />
+    <br />
+ </div>
+ <div id="forms-attributes" class="step" data-x="541" data-y="6372" data-scale="1" data-rotate="120">
+  <p class="title">Form Attributes</p>
+    placeholder: <input type="text" placeholder="Placeholder?" /><a class="issue" href="http://drupal.org/node/1174694">#1174694: Allow FAPI usage of the placeholder attribute</a><br />
+    pattern: <input type="text" pattern="[0-9]{3}-[a-c]{2}" placeholder="[0-9]{3}-[a-c]{2}"/> <a class="issue" href="http://drupal.org/node/1174766">#1174766: Support the pattern attribute</a><br />
+    required: <input type="text" required="required" /><a class="issue" href="http://drupal.org/node/1174938">#1174938: support the HTML5 #required FAPI property</a><br />
+    formnovalidate: <a class="issue" href="http://drupal.org/node/1174938">#1174938: support the HTML5 #required FAPI property</a><br />
+    <br />
+    <br />
+    <span>All available in Drupal 6/7 with <a href="http://drupal.org/project/html5_tools">html5_tools</a></span>
+ </div>
+
+
+ <div id="other" class="step" data-x="20" data-y="8300" data-scale="2" data-rotate="180">
+   <p class="title">Other random stuff</p>
+ </div>
+ <div id="other-cssresize" class="step" data-x="541" data-y="8000" data-scale="1" data-rotate="180">
+  <p class="title">Css3 resize attributes</p>
+    <textarea style="resize: both; overflow: auto; height: 150px;">
+    {
+      resize: both;
+      overflow: auto;
+    }
+    </textarea>
+    <textarea style="height: 150px; resize: vertical; overflow: auto;">
+    {
+      resize: vertical;
+      overflow: auto;
+    }
+    </textarea><br />
+    <textarea style="height: 150px; resize: horizontal; overflow: auto; max-width: 400px;">
+    {
+      resize: horizontal;
+      overflow: auto;
+      max-width: 400px;
+    }
+    </textarea>
+    <br />
+    <a class="issue small" href="http://drupal.org/node/1138258">#1138258: Drop textarea.js in favor of CSS3 resize</a></span>
+    <br />
+ </div>
+
+ <div id="other-video" class="step" data-x="41" data-y="7600" data-scale="1" data-rotate="180">
+  <p class="title">Media elements video/audio</p>
+  <video src="http://upload.wikimedia.org/wikipedia/commons/2/23/Ara_chloroptera.ogg" style="-webkit-box-reflect: right 10px;-webkit-gradient(linear, left top, left bottom, from(transparent), to(white));"></video>
+  <code>
+    &lt;video src="..../Ara_chloroptera.ogg" &gt; <br />
+    css:<br />
+    -webkit-box-reflect: right 10px;<br />
+  </code>
+  <a class="issue small" href="http://drupal.org/node/1138258">#1138258: Rich media display with <video> and <audio> HTML5 elements</a></span>
+  <br />
+ </div>
+
+
+  <div id="prevasd-last" class="step slide" data-x="-900" data-y="1500">
+     <p class="title">Drupal Resources</p>
+     <p>irc: #drupal-html5</p>
+     <a href="http://groups.drupal.org/html5">http://groups.drupal.org/html5</a> <br />
+     <a href="http://drupal.org/project/html5_tools">HTML5 Tools</a><br />
+     <a href="http://drupal.org/project/issues/search/drupal?issue_tags=html5">#html5 tags on Drupal core</a><br />
+     <a href="drupal.org/html5">HTML5 Initiative</a><br /><br />
+     <p>- Meeting every other Tuesday at 4pm</p>
+     <p>- Office hours every Sunday 1-3pm EST in #drupal-html5</p>
+     <p>- @drupal8html</p>     
+  </div>
+
+ <div id="last" class="step slide" data-x="100" data-y="1500">
+    <p class="title">About</p>
+    <p>Presentation for <a href="http://www.drupalcampnj.org/">DrupalCampNJ</a></p>
+  </div>
+  <div id="overview" class="step" data-x="100" data-y="200" data-scale="3">
+  </div>
+</div>
+
+<div class="hint">
+  <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+
+<script src="js/impress.js"></script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script type="text/javascript">
+  (function() {
+
+  })();
+</script>
+</body>
+</html>
